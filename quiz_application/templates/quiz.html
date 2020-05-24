@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Welcome to Quiz {% endblock %}
+{{ count }}
+{% block content %}
+  <h2>Please take Quiz</h2>
+  {% for question in questions %}
+  <h3>{{ question.question_title }}</h3>
+  <br>
+  <h4>
+  {% for option in question.options.all%}
+  <input type="radio" name="{{question.id}}" value={{option.quiz_answer}}>{{ option.quiz_answer }} <br>
+  </hr>
+  {% endfor %}
+  {% endfor %}
+
+<form>
+<input type="button" name="clear" onClick="this.form.reset()"  value="Clear" />
+</form>
+ <form action="" method="post">
+<input type="submit" name="submit" value="Submit" />
+</form>
+
+{% endblock %}

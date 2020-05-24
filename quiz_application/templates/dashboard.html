@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+  <h2>Quiz in following Categories are present</h2>
+  {% for cat in cats %}
+  <h4>
+  {{ cat.category_name }} : <a href="/quiz/{{cat.id}}"> Start {{cat.category_name}} Test</a>
+  </h4> Taken  {{ cat.quiz_taken }} times
+  <br>
+  {% endfor %}
+
+
+{% endblock %}
